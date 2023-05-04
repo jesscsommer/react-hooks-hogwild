@@ -1,13 +1,27 @@
-const HogCard = ({ name, image, specialty, weight, greased, highestMedalAchieved }) => {
+import { useState } from 'react'
+
+const HogCard = ({ hog, highestMedalAchieved }) => {
+    const {name, image, specialty, weight, greased} = hog
+
+    const [clickedHog, setClickedHog] = useState('')
+
+    const detailsClass = clickedHog === hog ? '' : 'hidden'
+    
+    const handleClick = () => {
+        clickedHog === hog ? setClickedHog('') : setClickedHog(hog)
+    }
 
     return (
-    <div className="pigTile">
+    <div onClick={handleClick} className='pigTile'>
         <h1>{name}</h1>
         <img src={image} alt={name} />
-        <h3>Specialty: {specialty}</h3> 
-        <h3>Weight: {weight}</h3>
-        <h3>Greased: {greased ? 'Yes, of course' : 'No way'}</h3>
-        <h3>Highest Medal Achieved: {highestMedalAchieved}</h3>
+        <ul className={detailsClass}>
+        <h3>Additional details</h3>
+            <li>Specialty: {specialty}</li> 
+            <li>Weight: {weight}</li>
+            <li>Greased: {greased ? 'Yes, of course' : 'No way'}</li>
+            <li>Highest Medal Achieved: {highestMedalAchieved}</li>
+        </ul>
     </div>
     )
 }

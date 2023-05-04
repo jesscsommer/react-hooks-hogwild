@@ -68,6 +68,10 @@ ul {
   text-align: left;
 }
 
+.hidden {
+  display: none;
+}
+
 .subtleText {
   color: #D1D1D1;
   font-size: .75em;
