@@ -23,9 +23,12 @@ body {
 }
 
 .filterWrapper {
-  margin: 2% 0% 2% 0%;
+  margin: 3.5% 0% 3.5% 0%;
 }
 
+.filterWrapper select {
+  margin-left: 5rem;
+}
 .headerText {
   color: #F5A9BC;
   font-size: 3em;
@@ -70,6 +73,10 @@ ul {
 
 .hidden {
   display: none;
+}
+
+label {
+  margin-left: 0.5em;
 }
 
 .subtleText {
