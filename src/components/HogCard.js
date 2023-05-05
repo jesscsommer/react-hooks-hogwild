@@ -12,16 +12,18 @@ const HogCard = ({ hog, highestMedalAchieved }) => {
     }
 
     return (
-    <div onClick={handleClick} className='pigTile'>
+    <div onClick={handleClick} className='ui card eight wide column pigTile'>
         <h1>{name}</h1>
         <img src={image} alt={name} />
-        <ul className={detailsClass}>
-        <h3>Additional details</h3>
-            <li>Specialty: {specialty}</li> 
-            <li>Weight: {weight}</li>
-            <li>Greased: {greased ? 'Yes, of course' : 'No way'}</li>
-            <li>Highest Medal Achieved: {highestMedalAchieved}</li>
-        </ul>
+        <div className={detailsClass}>
+            <h3>Additional details</h3>
+            <ul>
+                <li>Specialty: {specialty}</li> 
+                <li>Weight: {weight}</li>
+                <li>Greased: {greased ? 'Yes, of course' : 'No way'}</li>
+                <li>Highest Medal Achieved: {highestMedalAchieved}</li>
+            </ul>
+        </div>
     </div>
     )
 }

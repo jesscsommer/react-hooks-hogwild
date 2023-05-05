@@ -34,10 +34,16 @@ function App() {
 	const sortedHogs = filteredHogs.sort(compareHogs)
 
 	return (
-		<div className="App">
-			<Nav />
-			<HogControls changeGreased={changeGreased} changeSortBy={changeSortBy} /> 
-			<HogList hogs={sortedHogs} /> 
+		<div className="ui grid container App">
+			<div className="sixteen wide column centered">
+				<Nav />
+			</div>
+			<div className="sixteen wide column centered">
+				<HogControls changeGreased={changeGreased} changeSortBy={changeSortBy} /> 
+			</div>
+			<div className="sixteen wide column centered">
+				<HogList hogs={sortedHogs} /> 
+			</div>
 		</div>
 	);
 }
