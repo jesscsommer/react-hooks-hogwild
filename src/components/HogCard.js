@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const HogCard = ({ hog, highestMedalAchieved, changeInvisibleHogs }) => {
+const HogCard = ({ hog, highestMedalAchieved, hideHogs }) => {
     const {name, image, specialty, weight, greased} = hog
 
     const [clickedHog, setClickedHog] = useState('')
@@ -15,7 +15,7 @@ const HogCard = ({ hog, highestMedalAchieved, changeInvisibleHogs }) => {
     <div onClick={handleClick} className='ui card eight wide column pigTile'>
         <h1>{name}</h1>
         <img src={image} alt={name} />
-        <button onClick={() => changeInvisibleHogs(hog)}>Hide me!</button>
+        <button onClick={() => hideHogs(hog)}>Hide me!</button>
         <div className={detailsClass}>
             <h3>Additional details</h3>
             <ul>

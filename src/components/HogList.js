@@ -1,9 +1,11 @@
 import HogCard from "./HogCard"
+import {v4 as uuid} from "uuid"
 
-const HogList = ({ hogs, changeInvisibleHogs }) => {
+const HogList = ({ sortedHogs, hideHogs }) => {
     return (
       <div className="ui three stackable cards">
-        {hogs.map(hog => <HogCard key={hog.name} hog={hog} changeInvisibleHogs={changeInvisibleHogs} highestMedalAchieved={hog['highest medal achieved']}/>)}
+        {sortedHogs.map(hog => 
+        <HogCard key={uuid()} hog={hog} hideHogs={hideHogs} highestMedalAchieved={hog['highest medal achieved']}/>)}
       </div>
     )
 }

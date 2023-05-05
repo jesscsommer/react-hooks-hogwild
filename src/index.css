@@ -30,6 +30,10 @@ body {
   margin-left: 5rem;
 }
 
+.filterWrapper label {
+  margin-left: 0.5em;
+}
+
 .headerText {
   color: #F5A9BC;
   font-size: 3em;
@@ -76,8 +80,28 @@ ul {
   display: none;
 }
 
-label {
-  margin-left: 0.5em;
+form input {
+  margin-bottom: 0.5em;
+}
+
+form input[type=checkbox] {
+  vertical-align: bottom;
+  position: relative;
+  margin-right: 0.5em;
+  top: 0.15em;
+}
+
+form input[type=submit] {
+  display: block;
+  margin: auto;
+}
+
+form label {
+  display: block;
+}
+
+form {
+  text-align: center;
 }
 
 .subtleText {
