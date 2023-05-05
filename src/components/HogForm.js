@@ -22,21 +22,23 @@ const HogForm = ({ addHog }) => {
         } 
     }
 
-    // const validateData = () => {
-
-    // }
-
+    const validateData = () => Object.values(formData).filter(elem => typeof elem === 'string').some(el => el.trim() === '') || formData.weight === 0
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-        addHog(formData)
-        setFormData({
-            name: '',
-            specialty: '',
-            greased: false,
-            weight: '',
-            'highest medal achieved': '',
-            image: ''
-        })
+        if (validateData()) {
+            alert('Oink! Please fill out the whole form')
+        } else {
+            addHog(formData)
+            setFormData({
+                name: '',
+                specialty: '',
+                greased: false,
+                weight: '',
+                'highest medal achieved': '',
+                image: ''
+            })
+        }
     }
 
     return (
@@ -59,13 +61,3 @@ const HogForm = ({ addHog }) => {
 }
 
 export default HogForm
-
-// {
-//     name: "Babe",
-//     specialty: "Being incredibly cute",
-//     greased: false,
-//     weight: 2.0,
-//     "highest medal achieved": "bronze",
-//     image:
-//       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/babe.jpg",
-//   }
