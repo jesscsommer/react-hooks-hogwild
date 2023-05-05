@@ -8,12 +8,19 @@ import hogs from "../porkers_data";
 function App() {
 
 	const [isGreased, setIsGreased] = useState(false)
+	const [invisibleHogs, setInvisibleHogs] = useState([])
 
 	const changeGreased = () => {
 		setIsGreased(currentValue => !currentValue)
 	}
 
+	const changeInvisibleHogs = (newHog) => {
+		setInvisibleHogs([...invisibleHogs, newHog])
+	}
+
 	const filteredHogs = hogs.filter(hog => isGreased === false || hog.greased === isGreased)
+	const visibleHogs = filteredHogs.filter(hog => invisibleHogs.includes(hog) === false)
+	// create a state to track invisible hogs that you add to when a hog's hide me btn is clicked --> you'll need to pass it down into hog card ultimately
 
 	const [sortBy, setSortBy] = useState('')
 
@@ -31,7 +38,7 @@ function App() {
 		return 0
 	}
 
-	const sortedHogs = filteredHogs.sort(compareHogs)
+	const sortedHogs = visibleHogs.sort(compareHogs)
 
 	return (
 		<div className="ui grid container App">
@@ -42,7 +49,7 @@ function App() {
 				<HogControls changeGreased={changeGreased} changeSortBy={changeSortBy} /> 
 			</div>
 			<div className="sixteen wide column centered">
-				<HogList hogs={sortedHogs} /> 
+				<HogList hogs={sortedHogs} changeInvisibleHogs={changeInvisibleHogs} /> 
 			</div>
 		</div>
 	);
