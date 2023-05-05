@@ -15,11 +15,29 @@ function App() {
 
 	const filteredHogs = hogs.filter(hog => isGreased === false || hog.greased === isGreased)
 
+	const [sortBy, setSortBy] = useState('')
+
+	const changeSortBy = (newSort) => {
+		setSortBy(newSort)
+	}
+
+	const compareHogs = (hog1, hog2) => {
+		if (hog1[sortBy] < hog2[sortBy]){
+			return -1
+		}
+		if (hog1[sortBy] > hog2[sortBy]) {
+			return 1
+		} 
+		return 0
+	}
+
+	const sortedHogs = filteredHogs.sort(compareHogs)
+
 	return (
 		<div className="App">
 			<Nav />
-			<HogControls changeGreased={changeGreased} /> 
-			<HogList hogs={filteredHogs} /> 
+			<HogControls changeGreased={changeGreased} changeSortBy={changeSortBy} /> 
+			<HogList hogs={sortedHogs} /> 
 		</div>
 	);
 }
