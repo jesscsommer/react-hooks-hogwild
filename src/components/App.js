@@ -8,9 +8,6 @@ import hogs from "../porkers_data";
 
 function App() {
 
-	//TODO: Create a helper fn to add a new hog 
-	//TODO: Create a new form component
-
 	//! State variables
 
 	const [allHogs, setAllHogs] = useState(hogs)
