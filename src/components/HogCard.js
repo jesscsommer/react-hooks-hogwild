@@ -3,12 +3,10 @@ import { useState } from 'react'
 const HogCard = ({ hog, highestMedalAchieved, hideHogs }) => {
     const {name, image, specialty, weight, greased} = hog
 
-    const [clickedHog, setClickedHog] = useState('')
-
-    const detailsClass = clickedHog === hog ? '' : 'hidden'
+    const [isClicked, setIsClicked] = useState(false)
     
     const handleClick = () => {
-        clickedHog === hog ? setClickedHog('') : setClickedHog(hog)
+        setIsClicked(current => !current)
     }
 
     return (
@@ -16,7 +14,8 @@ const HogCard = ({ hog, highestMedalAchieved, hideHogs }) => {
         <h1>{name}</h1>
         <img src={image} alt={name} />
         <button onClick={() => hideHogs(hog)}>Hide me!</button>
-        <div className={detailsClass}>
+        {isClicked ? 
+        <div>
             <h3>Additional details</h3>
             <ul>
                 <li>Specialty: {specialty}</li> 
@@ -24,7 +23,10 @@ const HogCard = ({ hog, highestMedalAchieved, hideHogs }) => {
                 <li>Greased: {greased ? 'Yes, of course' : 'No way'}</li>
                 <li>Highest Medal Achieved: {highestMedalAchieved}</li>
             </ul>
-        </div>
+        </div> :
+        null
+        }
+       
     </div>
     )
 }
