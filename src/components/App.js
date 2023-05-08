@@ -13,7 +13,7 @@ function App() {
 
 	//! State variables
 
-	const [allHogs, setAllHogs] = useState([...hogs])
+	const [allHogs, setAllHogs] = useState(hogs)
 	const [isGreased, setIsGreased] = useState(false)
 	const [sortBy, setSortBy] = useState('')
 
